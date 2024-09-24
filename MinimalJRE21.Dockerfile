@@ -1,4 +1,4 @@
-FROM alpine:3 as JRE_BUILDER
+FROM eclipse-temurin:21-jdk-alpine as JRE_BUILDER
 MAINTAINER MrGraversen
 
 # Install OpenJDK 21 JDK and jmods
