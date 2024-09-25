@@ -15,7 +15,7 @@ RUN /usr/lib/jvm/java-21-openjdk/bin/jlink \
     --release-info="add:IMPLEMENTOR=MrGraversen:IMPLEMENTOR_VERSION=minimal_jre" \
     --output "$MINIMAL_JAVA"
 
-FROM alpine:3
+FROM eclipse-temurin:21-jre-alpine
 MAINTAINER MrGraversen
 
 # Set the environment variables to point to the custom JRE
