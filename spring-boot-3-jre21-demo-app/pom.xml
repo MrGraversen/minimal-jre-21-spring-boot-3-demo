@@ -10,8 +10,10 @@
 
     <properties>
         <java.version>21</java.version>
-        <docker.image.name>ghcr.io/mrgraversen/spring-boot-3-jre-21-demo</docker.image.name>
-        <docker.image.version>${project.version}</docker.image.version>
+        <docker-maven.version>0.45.0</docker-maven.version>
+        <docker-registry>ghcr.io/mrgraversen</docker-registry>
+        <docker-image-name>spring-boot-3-jre-21-demo</docker-image-name>
+        <docker-image-version>${project.version}</docker-image-version>
     </properties>
 
     <parent>
@@ -37,15 +39,16 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.45.0</version>
+                <version>${docker-maven.version}</version>
                 <configuration>
                     <buildArgs>
                         <JAR_FILE>maven/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
                     <images>
                         <image>
-                            <name>${docker.image.name}:${docker.image.version}</name>
+                            <name>${docker-registry}/${docker-image-name}:latest</name>
                             <build>
+                                <contextDir>${basedir}</contextDir>
                                 <dockerFile>${basedir}/../MinimalJRE21.Dockerfile</dockerFile>
                                 <assembly>
                                     <descriptorRef>artifact-with-dependencies</descriptorRef>
