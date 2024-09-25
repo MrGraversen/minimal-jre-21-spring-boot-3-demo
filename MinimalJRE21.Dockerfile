@@ -33,6 +33,7 @@ COPY --from=JRE_BUILDER "$JAVA_HOME" "$JAVA_HOME"
 # Copy the application JAR file
 ARG JAR_FILE
 COPY --chown=app:app ${JAR_FILE} /app/app.jar
+VOLUME /tmp
 
 # Set the working directory
 WORKDIR /app
