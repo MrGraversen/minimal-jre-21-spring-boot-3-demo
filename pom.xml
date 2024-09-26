@@ -21,6 +21,8 @@
         <java.version>21</java.version>
         <docker-maven.version>0.45.0</docker-maven.version>
         <docker-registry>ghcr.io/mrgraversen</docker-registry>
+        <feign.version>13.2</feign.version>
+        <jackson-databind.version>2.17.0</jackson-databind.version>
     </properties>
 
     <dependencies>
@@ -33,6 +35,26 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-jackson</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -48,5 +70,6 @@
 
     <modules>
         <module>spring-boot-3-jre21-demo-app</module>
+        <module>open-meteo</module>
     </modules>
 </project>
