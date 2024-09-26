@@ -1,4 +1,4 @@
-package io.graversen.openmeteo;
+package io.graversen.openmeteo.client;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

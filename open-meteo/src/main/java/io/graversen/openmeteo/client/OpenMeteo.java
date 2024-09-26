@@ -1,4 +1,4 @@
-package io.graversen.openmeteo;
+package io.graversen.openmeteo.client;
 
 import feign.Param;
 import feign.RequestLine;
