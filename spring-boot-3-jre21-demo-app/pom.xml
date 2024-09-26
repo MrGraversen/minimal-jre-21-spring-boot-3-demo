@@ -4,23 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.graversen</groupId>
-    <artifactId>spring-boot-3-jre21-demo</artifactId>
-    <version>0.0.0</version>
+    <artifactId>spring-boot-3-jre21-demo-app</artifactId>
 
     <properties>
-        <java.version>21</java.version>
-        <docker-maven.version>0.45.0</docker-maven.version>
-        <docker-registry>ghcr.io/mrgraversen</docker-registry>
         <docker-image-name>spring-boot-3-jre-21-demo</docker-image-name>
-        <docker-image-version>${project.version}</docker-image-version>
+        <docker-image-version>latest</docker-image-version>
     </properties>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
-        <relativePath/>
+        <groupId>io.graversen</groupId>
+        <artifactId>jre-21-docker-parent</artifactId>
+        <version>0.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <dependencies>
