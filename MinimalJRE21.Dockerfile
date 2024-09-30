@@ -8,7 +8,7 @@ ENV MINIMAL_JAVA="/opt/minimal-java"
 
 # Build minimal JRE using jlink
 # This JRE is suitable to run most Spring Boot based applications while minimising memory footprint and startup time
-RUN /usr/lib/jvm/java-21-openjdk/bin/jlink \
+RUN "$JAVA_HOME"/bin/jlink \
     --verbose \
     --add-modules java.base,jdk.unsupported,jdk.management,jdk.crypto.ec,java.net.http,java.sql,java.naming,java.desktop,java.management,java.security.jgss,java.instrument,java.rmi \
     --compress 2 --strip-debug --no-header-files --no-man-pages \
@@ -42,4 +42,4 @@ WORKDIR /app
 USER app
 
 # Start the application using the minimal JRE 21
-ENTRYPOINT ["java", "-Xss512k", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-Xss512k", "-XX:+UseSerialGC", "-jar", "/app/app.jar"]
