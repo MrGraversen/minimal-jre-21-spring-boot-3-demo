@@ -35,4 +35,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push Docker Image
-        run: docker push ghcr.io/mrgraversen/spring-boot-3-jre-21-demo:minimal-jre-21
+        run: docker push ghcr.io/mrgraversen/minimal-jre-21-spring-boot-3-demo:minimal-jre-21

@@ -7,8 +7,8 @@
     <artifactId>spring-boot-3-jre21-demo-app</artifactId>
 
     <properties>
-        <docker-image-name>spring-boot-3-jre-21-demo</docker-image-name>
-        <docker-image-version>minimal-jre-21</docker-image-version>
+        <docker-image-name>minimal-jre-21-spring-boot-3-demo</docker-image-name>
+        <docker-image-version>latest</docker-image-version>
     </properties>
 
     <parent>

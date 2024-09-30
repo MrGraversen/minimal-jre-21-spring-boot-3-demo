@@ -39,7 +39,7 @@ mvn clean install docker:build
 ```
 To run the Docker application while exposing port `8080`, do the following:
 ```shell
-docker run --rm -p 8080:8080 ghcr.io/mrgraversen/spring-boot-3-jre-21-demo:minimal-jre-21
+docker run --rm -p 8080:8080 ghcr.io/mrgraversen/minimal-jre-21-spring-boot-3-demo
 ```
 
 To call the API, use the following `curl` command:
