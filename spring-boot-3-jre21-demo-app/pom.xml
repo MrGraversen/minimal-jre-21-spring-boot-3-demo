@@ -8,7 +8,7 @@
 
     <properties>
         <docker-image-name>spring-boot-3-jre-21-demo</docker-image-name>
-        <docker-image-version>latest</docker-image-version>
+        <docker-image-version>minimal-jre-21</docker-image-version>
     </properties>
 
     <parent>
@@ -45,7 +45,7 @@
                     </buildArgs>
                     <images>
                         <image>
-                            <name>${docker-registry}/${docker-image-name}:latest</name>
+                            <name>${docker-registry}/${docker-image-name}:${docker-image-version}</name>
                             <build>
                                 <contextDir>${basedir}</contextDir>
                                 <dockerFile>${basedir}/../MinimalJRE21.Dockerfile</dockerFile>
