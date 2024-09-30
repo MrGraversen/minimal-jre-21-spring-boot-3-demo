@@ -1,5 +1,5 @@
 FROM eclipse-temurin:21-jdk-alpine as JRE_BUILDER
-MAINTAINER MrGraversen
+LABEL maintainer="MrGraversen"
 
 # Install OpenJDK 21 JDK and jmods
 RUN apk --no-cache add openjdk21-jdk openjdk21-jmods
@@ -16,11 +16,12 @@ RUN "$JAVA_HOME"/bin/jlink \
     --output "$MINIMAL_JAVA"
 
 FROM alpine:3
-MAINTAINER MrGraversen
+LABEL maintainer="MrGraversen"
 
 # Set the environment variables to point to the custom JRE
 ENV JAVA_HOME=/opt/minimal-java
 ENV PATH="$JAVA_HOME/bin:$PATH"
+ENV JAVA_TOOL_OPTIONS="-Xss512k -XX:+UseSerialGC"
 
 # Install required runtime dependencies
 RUN apk add --no-cache libstdc++ \
@@ -33,7 +34,6 @@ COPY --from=JRE_BUILDER "$JAVA_HOME" "$JAVA_HOME"
 # Copy the application JAR file
 ARG JAR_FILE
 COPY --chown=app:app ${JAR_FILE} /app/app.jar
-VOLUME /tmp
 
 # Set the working directory
 WORKDIR /app
@@ -42,4 +42,4 @@ WORKDIR /app
 USER app
 
 # Start the application using the minimal JRE 21
-ENTRYPOINT ["java", "-Xss512k", "-XX:+UseSerialGC", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
