@@ -42,4 +42,4 @@ WORKDIR /app
 USER app
 
 # Start the application using the minimal JRE 21
-ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-Xss512k", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-Xss512k", "-jar", "/app/app.jar"]
